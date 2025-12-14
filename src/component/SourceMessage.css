@@ -1,0 +1,126 @@
+.source-message-wrapper {
+    display: flex;
+    margin-bottom: 12px;
+    animation: slideIn 0.3s ease;
+}
+
+.source-message-wrapper.user {
+    justify-content: flex-end;
+}
+
+.source-message-wrapper.assistant {
+    justify-content: flex-start;
+}
+
+.source-message-bubble {
+    max-width: 85%;
+    padding: 12px 16px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    line-height: 1.5;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.source-message-bubble.user {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+}
+
+.source-message-bubble.assistant {
+    background: #f3f4f6;
+    color: #1f2937;
+}
+
+.source-message-content {
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+.source-message-sources {
+    margin-top: 10px;
+}
+
+.source-message-toggle {
+    background: none;
+    border: none;
+    color: #3b82f6;
+    cursor: pointer;
+    font-size: 13px;
+    padding: 4px 0;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.source-message-toggle:hover {
+    color: #1d4ed8;
+}
+
+.source-message-list {
+    margin-top: 10px;
+    margin-left: 0;
+    padding-left: 20px;
+    font-size: 12px;
+    animation: fadeIn 0.2s ease;
+}
+
+.source-message-list li {
+    margin-bottom: 6px;
+    word-break: break-word;
+}
+
+.source-message-list a {
+    color: #3b82f6;
+    word-break: break-all;
+}
+
+/* Tablet (768px and down) */
+@media (max-width: 768px) {
+    .source-message-bubble {
+        max-width: 90%;
+        padding: 10px 12px;
+        border-radius: 10px;
+    }
+
+    .source-message-toggle {
+        font-size: 12px;
+    }
+
+    .source-message-list {
+        padding-left: 16px;
+        font-size: 11px;
+    }
+
+    .source-message-list li {
+        margin-bottom: 4px;
+    }
+}
+
+/* Mobile (480px and down) */
+@media (max-width: 480px) {
+    .source-message-bubble {
+        max-width: 95%;
+        padding: 8px 10px;
+        border-radius: 8px;
+        font-size: 13px;
+    }
+
+    .source-message-content {
+        font-size: 13px;
+    }
+
+    .source-message-toggle {
+        font-size: 11px;
+        padding: 2px 0;
+    }
+
+    .source-message-list {
+        margin-top: 8px;
+        padding-left: 14px;
+        font-size: 10px;
+    }
+
+    .source-message-list li {
+        margin-bottom: 3px;
+    }
+}

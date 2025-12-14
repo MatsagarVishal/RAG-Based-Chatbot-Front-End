@@ -1,0 +1,36 @@
+.loader {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #6b7280;
+    margin: 12px 0;
+    animation: fadeIn 0.3s ease;
+}
+
+.loader-icon {
+    font-size: 18px;
+    animation: bounce 1.4s infinite;
+    flex-shrink: 0;
+}
+
+.loader-text {
+    font-style: italic;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+/* Mobile (480px and down) */
+@media (max-width: 480px) {
+    .loader {
+        gap: 6px;
+        margin: 8px 0;
+    }
+
+    .loader-icon {
+        font-size: 16px;
+    }
+
+    .loader-text {
+        font-size: 12px;
+    }
+}
