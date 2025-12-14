@@ -14,12 +14,21 @@ export default function CrawlForm({ onCrawlSuccess }) {
 
     const isValidUrl = (value) => {
         if (!value) return false;
+
+        // Reject URLs with spaces, quotes, or other invalid characters
+        if (/[\s"'`<>]/.test(value)) return false;
+
         try {
             const u = new URL(value.startsWith('http') ? value : `https://${value}`);
             const isLocalhost = u.hostname === 'localhost' || u.hostname === '127.0.0.1';
             const hasTLD = u.hostname.includes('.') && !u.hostname.endsWith('.');
 
-            return (u.protocol === 'http:' || u.protocol === 'https:') && (isLocalhost || hasTLD);
+            // Ensure hostname only contains valid characters (letters, numbers, dots, hyphens)
+            const validHostname = /^[a-zA-Z0-9.-]+$/.test(u.hostname);
+
+            return (u.protocol === 'http:' || u.protocol === 'https:') &&
+                (isLocalhost || hasTLD) &&
+                validHostname;
         } catch {
             return false;
         }
