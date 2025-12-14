@@ -1,0 +1,8 @@
+{
+    "rewrites": [
+        {
+            "source": "/proxy/:match*",
+            "destination": "http://13.60.207.30:8000/:match*"
+        }
+    ]
+}
