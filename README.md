@@ -1,16 +1,104 @@
-# RAG Chatbot Front-End
+# Sherpa - RAG Chatbot Frontend
 
-This is the front-end application for the RAG-Based Chatbot, built with React and Vite.
+Your website, now with a PhD in small talk.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Sherpa is a modern, React-based frontend for a RAG (Retrieval-Augmented Generation) chatbot. It allows users to crawl websites, build knowledge bases, and interact with an AI assistant that understands the content of those websites.
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🧠 **Smart Website Crawling** - Feed any website URL to build a knowledge base
+- 💬 **Interactive Chat** - Ask questions about the crawled content
+- 🔄 **Backend Wake-up** - Automatic health check to wake up sleeping Render backends
+- ✨ **Beautiful UI** - Modern, responsive design with smooth animations
+- ✅ **Strict URL Validation** - Ensures only valid URLs are processed
+- 📱 **Fully Responsive** - Works seamlessly on desktop, tablet, and mobile
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React** - UI framework
+- **Vite** - Build tool and dev server
+- **Axios** - HTTP client for API requests
+- **CSS3** - Custom styling with animations
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v16 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/MatsagarVishal/RAG-Based-Chatbot-Front-End.git
+cd RAG-Based-Chatbot-Front-End
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Create a `.env` file in the root directory:
+```env
+VITE_API_BASE_URL=http://localhost:8000
+```
+
+4. Start the development server:
+```bash
+npm run dev
+```
+
+5. Open your browser and navigate to `http://localhost:5173`
+
+## Environment Variables
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `VITE_API_BASE_URL` | Backend API base URL | `http://localhost:8000` |
+
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+
+## Project Structure
+
+```
+src/
+├── api/          # API integration layer
+├── component/    # Reusable React components
+├── pages/        # Page components
+├── assets/       # Static assets
+└── index.css     # Global styles
+```
+
+## Features in Detail
+
+### URL Validation
+The app includes strict URL validation that:
+- Requires valid TLDs (e.g., `.com`, `.org`)
+- Accepts localhost for development
+- Rejects invalid characters (spaces, quotes, etc.)
+
+### Backend Health Check
+Automatically pings the backend `/health` endpoint on app load to wake up sleeping Render instances, ensuring a smooth user experience.
+
+### Responsive Design
+The UI adapts seamlessly to different screen sizes with:
+- Fixed layouts to prevent shifting
+- Consistent spacing and alignment
+- Mobile-optimized components
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is open source and available under the MIT License.
