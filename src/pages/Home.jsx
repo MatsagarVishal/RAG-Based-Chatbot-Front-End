@@ -9,8 +9,8 @@ export default function Home() {
     return (
         <div className="home-container">
             {!kbId && <div className="home-header">
-                <h1 className="home-title">Whisperer</h1>
-                <p className="home-subtitle">Understands what your site says</p>
+                <h1 className="home-title">Sherpa</h1>
+                <p className="home-subtitle">Your website, now with a PhD in small talk.</p>
             </div>}
 
             {!kbId && <CrawlForm onCrawlSuccess={setKbId} />}

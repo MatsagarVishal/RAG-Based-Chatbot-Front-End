@@ -154,8 +154,8 @@ export default function CrawlForm({ onCrawlSuccess }) {
             ) : (
                 <div className="crawl-form-card">
                     <div className="crawl-form-header">
-                        <h2>🌐 Create Knowledge Base</h2>
-                        <p>Enter your website URL to start</p>
+                        <h2>🧠 Feed the Sherpa</h2>
+                        <p>Drop a link. I'll do the reading.</p>
                     </div>
                     <div className="crawl-form-inputs">
                         <input
@@ -184,7 +184,7 @@ export default function CrawlForm({ onCrawlSuccess }) {
                             disabled={loading || !url || !isValidUrl(url)}
                             className="crawl-form-button"
                         >
-                            {loading ? "🔄 Crawling..." : "✨ Build Knowledge Base"}
+                            {loading ? "🧗 Climbing..." : "✨ Begin Expedition"}
                         </button>
                     </div>
                 </div>
