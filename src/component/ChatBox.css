@@ -1,36 +1,50 @@
 .chat-box-container {
-    max-width: 800px;
     width: 100%;
-    margin: 20px auto;
+    max-width: 1200px;
+    /* Wide standard width */
+    margin: auto;
+    /* Explicit top/bottom margin */
+    /* Flex centering from parent should apply, but this helps */
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 40px);
+    justify-content: center;
+    /* Strict height controls to prevent top merging */
+    height: 80vh;
+    /* Use most of the height */
+
     overflow: hidden;
-    background: #ffffffd9;
-    border-radius: 20px;
-    box-shadow: 0 20px 60px #06b6d433, 0 0 40px rgba(6, 182, 212, 0.1);
-    border: 1px solid rgba(6, 182, 212, 0.3);
-    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 10;
+
+    /* Aurora Glass Card */
+    background: var(--glass-bg);
+    border-radius: 24px;
+    box-shadow: var(--glass-shadow);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(var(--backdrop-blur));
 }
 
 .chat-box-header {
     padding: 20px;
-    border-bottom: 2px solid rgba(6, 182, 212, 0.2);
-    background: linear-gradient(135deg, rgba(6, 182, 212, 0.9) 0%, rgba(0, 217, 255, 0.9) 100%);
-    color: white;
-    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    /* Dark gradient header */
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+    color: #fff;
+    backdrop-filter: blur(5px);
 }
 
 .chat-box-header h2 {
     margin: 0;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(6, 182, 212, 0.3);
 }
 
 .chat-box-header p {
     margin: 4px 0 0 0;
     font-size: 14px;
-    opacity: 0.9;
+    color: #cbd5e1;
+    /* Slate 300 */
 }
 
 .chat-box-messages {
@@ -39,110 +53,90 @@
     padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    background: rgba(255, 255, 255, 0.5);
+    gap: 16px;
+    background: transparent;
+    /* Show through global background */
 }
 
 .chat-box-empty-state {
     text-align: center;
-    color: #9ca3af;
+    color: #64748b;
+    /* Slate 500 */
     margin-top: 40px;
     font-size: 16px;
 }
 
 .chat-box-input-area {
     display: flex;
-    gap: 10px;
-    padding: 16px 20px;
-    border-top: 1px solid rgba(6, 182, 212, 0.1);
-    background: rgba(255, 255, 255, 0.7);
+    gap: 12px;
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.2);
+    /* Slightly darker input area */
     backdrop-filter: blur(10px);
 }
 
 .chat-box-input {
     flex: 1;
-    padding: 12px 16px;
-    border-radius: 10px;
-    border: 2px solid #e5e7eb;
+    padding: 14px 18px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 14px;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
     transition: all 0.3s ease;
+    font-family: inherit;
 }
 
 .chat-box-input:focus {
     outline: none;
-    border-color: #06b6d4;
-    box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1), 0 0 15px rgba(6, 182, 212, 0.3);
+    border-color: var(--primary-glow);
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 0 1px rgba(6, 182, 212, 0.3), 0 0 15px rgba(6, 182, 212, 0.1);
+}
+
+.chat-box-input::placeholder {
+    color: #64748b;
 }
 
 .chat-box-send-button {
     padding: 12px 24px;
-    border-radius: 10px;
+    border-radius: 12px;
     border: none;
-    background: linear-gradient(135deg, #06b6d4 0%, #00d9ff 100%);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     color: white;
     cursor: pointer;
     font-weight: 600;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     white-space: nowrap;
-    box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
-}
-
-.chat-box-send-button:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(6, 182, 212, 0.5), 0 0 20px rgba(6, 182, 212, 0.3);
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
 }
 
 .chat-box-send-button:disabled {
-    opacity: 0.6;
+    opacity: 0.5;
+    background: #334155;
+    box-shadow: none;
     cursor: not-allowed;
 }
 
 /* Tablet (768px and down) */
 @media (max-width: 768px) {
     .chat-box-container {
-        max-width: 90vw;
-        height: 75vh;
+        max-width: 95vw;
+        height: 80vh;
         margin: 16px auto;
-        border-radius: 8px;
     }
 
     .chat-box-header {
         padding: 16px;
     }
 
-    .chat-box-header h2 {
-        font-size: 18px;
-    }
-
-    .chat-box-header p {
-        font-size: 13px;
-        margin: 3px 0 0 0;
-    }
-
     .chat-box-messages {
         padding: 16px;
-        gap: 10px;
-    }
-
-    .chat-box-empty-state {
-        margin-top: 30px;
-        font-size: 14px;
     }
 
     .chat-box-input-area {
-        padding: 12px 16px;
-        gap: 10px;
-    }
-
-    .chat-box-input {
-        padding: 10px 12px;
-        font-size: 14px;
-    }
-
-    .chat-box-send-button {
-        padding: 10px 16px;
-        font-size: 14px;
+        padding: 16px;
     }
 }
 
@@ -150,50 +144,34 @@
 @media (max-width: 480px) {
     .chat-box-container {
         max-width: 100vw;
-        height: 70vh;
-        margin: 10px 0;
+        height: 100dvh;
+        /* Use dynamic viewport height */
+        margin: 0;
         border-radius: 0;
-        box-shadow: none;
+        border: none;
+        position: fixed;
+        /* Fix to viewport to avoid scroll issues */
+        top: 0;
+        left: 0;
+        z-index: 100;
+        padding-inline: 16px;
+        /* Ensure on top */
     }
 
     .chat-box-header {
         padding: 12px 16px;
-    }
-
-    .chat-box-header h2 {
-        font-size: 16px;
-    }
-
-    .chat-box-header p {
-        font-size: 12px;
-        margin: 2px 0 0 0;
-    }
-
-    .chat-box-messages {
-        padding: 12px;
-        gap: 8px;
-    }
-
-    .chat-box-empty-state {
-        margin-top: 20px;
-        font-size: 13px;
+        padding-top: max(12px, env(safe-area-inset-top));
+        /* Handle notch */
     }
 
     .chat-box-input-area {
-        padding: 10px 12px;
+        padding: 12px;
+        padding-bottom: max(12px, env(safe-area-inset-bottom));
+        /* Handle home indicator */
         gap: 8px;
-        flex-direction: row;
-    }
-
-    .chat-box-input {
-        padding: 8px 10px;
-        font-size: 13px;
-        border-radius: 6px;
     }
 
     .chat-box-send-button {
-        padding: 8px 12px;
-        font-size: 13px;
-        border-radius: 6px;
+        padding: 10px 16px;
     }
 }

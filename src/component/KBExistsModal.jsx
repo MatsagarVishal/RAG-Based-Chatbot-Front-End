@@ -4,7 +4,7 @@ export default function KBExistsModal({ url, onUseExisting, onUpdateKB, isLoadin
     return (
         <div className="modal-overlay">
             <div className="modal-content">
-                <div className="modal-header">
+                <div className="kb-modal-header">
                     <h2>📦 Knowledge Base Already Exists</h2>
                     <p>We found a cached version of this website.</p>
                 </div>
@@ -27,7 +27,6 @@ export default function KBExistsModal({ url, onUseExisting, onUpdateKB, isLoadin
                             onClick={onUseExisting}
                             disabled={isLoading}
                         >
-                            <span className="icon">✓</span>
                             <div>
                                 <strong>Use Existing</strong>
                                 <span className="desc">Chat with cached data (faster)</span>
@@ -39,7 +38,6 @@ export default function KBExistsModal({ url, onUseExisting, onUpdateKB, isLoadin
                             onClick={onUpdateKB}
                             disabled={isLoading}
                         >
-                            <span className="icon">🔄</span>
                             <div>
                                 <strong>Update Knowledge Base</strong>
                                 <span className="desc">Re-crawl the website for fresh data</span>

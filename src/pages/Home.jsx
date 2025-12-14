@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import CrawlForm from "../component/CrawlForm";
 import ChatBox from "../component/ChatBox";
+import CrawlerVisual from "../component/CrawlerVisual";
 import { checkHealth } from "../api/ragAPi";
 import "./Home.css";
 
@@ -22,22 +23,34 @@ export default function Home() {
 
     return (
         <div className="home-container">
-            <div className="home-header">
-                <h1 className="home-title">Sherpa</h1>
-                <p className="home-subtitle">Your website, now with a PhD in small talk.</p>
+            {/* Ambient Background Visual */}
+            <div className="ambient-visual">
+                <CrawlerVisual />
             </div>
 
-            {isCheckingBackend && !kbId && (
-                <div className="backend-loading">
-                    <div className="loading-spinner"></div>
-                    <p>Waking up the backend server...</p>
-                    <p className="loading-subtext">This may take a few seconds</p>
+            {/* Show ChatBox if active, otherwise show Home Card */}
+            {kbId ? (
+                <ChatBox kb_id={kbId} />
+            ) : (
+                <div className="glass-panel main-content centered-card">
+                    <div className="home-header">
+                        <h1 className="home-title">Sherpa</h1>
+                        <p className="home-subtitle">Your website, now with a PhD in small talk.</p>
+                    </div>
+
+                    {isCheckingBackend && (
+                        <div className="backend-loading">
+                            <div className="loading-spinner"></div>
+                            <div className="spinner-header">
+                                <p>Connecting to Sherpa...</p>
+                                <p className="loading-subtext">Initializing secure environment</p>
+                            </div>
+                        </div>
+                    )}
+
+                    {!isCheckingBackend && <CrawlForm onCrawlSuccess={setKbId} />}
                 </div>
             )}
-
-            {!kbId && !isCheckingBackend && <CrawlForm onCrawlSuccess={setKbId} />}
-
-            {kbId && <ChatBox kb_id={kbId} />}
         </div>
     );
 }

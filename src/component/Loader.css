@@ -2,7 +2,8 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    color: #6b7280;
+    color: #94a3b8;
+    /* Slate 400 */
     margin: 12px 0;
     animation: fadeIn 0.3s ease;
 }
@@ -11,12 +12,16 @@
     font-size: 18px;
     animation: bounce 1.4s infinite;
     flex-shrink: 0;
+    color: var(--primary-glow);
+    filter: drop-shadow(0 0 5px var(--primary-color));
 }
 
 .loader-text {
     font-style: italic;
     font-size: 14px;
     white-space: nowrap;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* contrast against dark bg */
 }
 
 /* Mobile (480px and down) */

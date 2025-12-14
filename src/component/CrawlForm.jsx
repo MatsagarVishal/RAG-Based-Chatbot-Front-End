@@ -192,11 +192,11 @@ export default function CrawlForm({ onCrawlSuccess }) {
                             </div>
                         )}
                         <button
-                            onClick={handleCrawl}
-                            disabled={loading || !url || !isValidUrl(url)}
                             className="crawl-form-button"
+                            onClick={handleCrawl}
+                            disabled={loading || !url.trim()}
                         >
-                            {loading ? "🧗 Climbing..." : "✨ Begin Expedition"}
+                            Start
                         </button>
                     </div>
                 </div>

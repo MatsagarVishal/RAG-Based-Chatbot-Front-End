@@ -82,7 +82,7 @@ export default function ChatBox({ kb_id }) {
                     disabled={loading || !question}
                     className="chat-box-send-button"
                 >
-                    {loading ? "⏳" : "📤"}
+                    {loading ? "Sending..." : "Send"}
                 </button>
             </div>
         </div>
