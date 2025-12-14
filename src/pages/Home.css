@@ -28,6 +28,7 @@
 
 /* Centered Card - Hyper Glass */
 .centered-card {
+    overflow: hidden;
     position: relative;
     z-index: 10;
     width: 100%;
@@ -147,7 +148,7 @@
         width: 100%;
         max-width: 100%;
         /* Ensure it doesn't overflow */
-        min-height: auto;
+        height: 62%;
         /* Let content dictate height on mobile */
         border-radius: 24px;
     }
