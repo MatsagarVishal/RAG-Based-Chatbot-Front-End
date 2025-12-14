@@ -44,3 +44,18 @@ export const askQuestion = async (kb_id, question) => {
     throw error;
   }
 };
+
+export const checkHealth = async () => {
+  try {
+    console.log("Checking backend health...");
+    const res = await axios.get(`${API_BASE}/health`, { timeout: 30000 });
+    if (res.data?.status === "ok") {
+      console.log("Backend is ready!");
+      return true;
+    }
+    return false;
+  } catch (error) {
+    console.warn("Health check failed (backend may be waking up):", error.message);
+    return false;
+  }
+};

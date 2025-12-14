@@ -16,7 +16,10 @@ export default function CrawlForm({ onCrawlSuccess }) {
         if (!value) return false;
         try {
             const u = new URL(value.startsWith('http') ? value : `https://${value}`);
-            return u.protocol === 'http:' || u.protocol === 'https:';
+            const isLocalhost = u.hostname === 'localhost' || u.hostname === '127.0.0.1';
+            const hasTLD = u.hostname.includes('.') && !u.hostname.endsWith('.');
+
+            return (u.protocol === 'http:' || u.protocol === 'https:') && (isLocalhost || hasTLD);
         } catch {
             return false;
         }

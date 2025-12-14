@@ -1,11 +1,12 @@
 .crawl-form-wrapper {
-    max-width: 600px;
     width: 100%;
+    max-width: 480px;
+    /* Fixed max-width for consistency */
     margin: 0 auto;
-    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    /* Remove height: 100% to let flex container handle centering */
 }
 
 .crawl-form-card {
@@ -16,6 +17,13 @@
     border: 1px solid rgba(6, 182, 212, 0.2);
     backdrop-filter: blur(10px);
     position: relative;
+    width: 100%;
+    /* Take full width of wrapper */
+    min-height: 320px;
+    /* Fixed min-height to prevent jumping */
+    display: flex;
+    /* alignment */
+    flex-direction: column;
 }
 
 .crawl-form-card::before {
@@ -24,8 +32,10 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 1px;
+    height: 3px;
+    /* Slightly thicker */
     background: linear-gradient(90deg, transparent, #06b6d4, transparent);
+    border-radius: 16px 16px 0 0;
 }
 
 .crawl-form-header {
@@ -111,13 +121,17 @@
 @media (max-width: 768px) {
     .crawl-form-wrapper {
         max-width: 90vw;
-        margin: 32px auto;
+        margin: 0 auto;
+        /* Remove vertical margin to stay centered */
     }
 
     .crawl-form-card {
         padding: 32px 24px;
-        border-radius: 8px;
+        min-height: 300px;
+        /* Adjust min-height for tablet */
     }
+
+    /* ... keep rest ... */
 
     .crawl-form-header {
         margin-bottom: 20px;
